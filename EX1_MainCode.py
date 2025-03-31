@@ -154,7 +154,8 @@ def plot_results_table(results):
     fig, ax = plt.subplots()
     ax.axis('tight')
     ax.axis('off')
-    table_data = [["Model", "Train Accuracy", "Test Accuracy"]] + results
+    rounded_results = [[model, round(train_acc, 3), round(test_acc, 3)] for model, train_acc, test_acc in results]
+    table_data = [["Model", "Train Accuracy", "Test Accuracy"]] + rounded_results
     table = ax.table(cellText=table_data, cellLoc='center', loc='center')
     table.auto_set_font_size(False)
     table.set_fontsize(10)
