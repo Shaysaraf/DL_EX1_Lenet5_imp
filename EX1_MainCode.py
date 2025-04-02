@@ -208,5 +208,12 @@ results = [
 plot_results_table(results)
 
 # Determine the winner
-best_model = max(results, key=lambda x: x[2])
+def get_best_model(results):
+    best = results[0]
+    for result in results:
+        if result[2] > best[2]:
+            best = result
+    return best
+
+best_model = get_best_model(results)
 print(f"The best model is {best_model[0]} with a test accuracy of {best_model[2]:.2f}%")
