@@ -179,10 +179,10 @@ net_no_reg = LeNet5()
 criterion = nn.CrossEntropyLoss()
 
 # Define the optimizers
-optimizer_dropout = optim.SGD(net_dropout.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0005)
-optimizer_weight_decay = optim.SGD(net_weight_decay.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0005)
-optimizer_batch_norm = optim.SGD(net_batch_norm.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0005)
-optimizer_no_reg = optim.SGD(net_no_reg.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0005)
+optimizer_dropout = optim.SGD(net_dropout.parameters(), lr=0.01, momentum=0.9)
+optimizer_weight_decay = optim.SGD(net_weight_decay.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0001)
+optimizer_batch_norm = optim.SGD(net_batch_norm.parameters(), lr=0.01, momentum=0.9)
+optimizer_no_reg = optim.SGD(net_no_reg.parameters(), lr=0.01, momentum=0.9)
 
 # Train and evaluate the models
 train_accuracies_dropout, test_accuracies_dropout = train_and_evaluate(net_dropout, train_loader, test_loader, criterion, optimizer_dropout, num_epochs=10)
